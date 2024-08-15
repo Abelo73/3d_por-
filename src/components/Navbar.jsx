@@ -60,7 +60,9 @@ const Navbar = () => {
           <img src={logo} alt="logo" />
           <p>
             Abel Adisu{" "}
-            <span className="sm:block hidden">Software Developer</span>
+            <span className="sm:block text-orange-500 ">
+              Software Developer
+            </span>
           </p>
         </Link>
 
