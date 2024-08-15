@@ -1,0 +1,147 @@
+/* Navbar.css */
+
+/* Base styles for the navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    background-color: var(--tertiary-color); /* Use your background color */
+    z-index: 50;
+    transition: box-shadow 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition for shadow and blur effect */
+    backdrop-filter: none; /* Default backdrop filter (no blur) */
+}
+
+/* Shadow effect for scrolled state */
+.navbar-shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+}
+
+/* Container for the navbar elements */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; /* Add padding to container for spacing */
+}
+
+/* Logo styles */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-logo img {
+    width: 2.25rem;
+    height: 2.25rem;
+    object-fit: contain;
+}
+
+.navbar-logo p {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Desktop Navigation Links */
+.navbar-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.navbar-links li {
+    position: relative; /* For pseudo-element positioning */
+    color: var(--secondary-color);
+    font-size: 1.125rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.navbar-links li.active a {
+    color: orange; /* Active text color */
+}
+
+.navbar-links li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Position below the text */
+    width: 100%;
+    height: 2px; /* Height of the underline */
+    background-color: transparent;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.navbar-links li.active::after {
+    background-color: orange; /* Color of the underline for active item */
+}
+
+/* Mobile Menu Toggle Icon */
+.navbar-menu-toggle {
+    display: none;
+}
+
+/* Mobile Menu Dropdown */
+.navbar-menu {
+    display: none;
+    position: absolute;
+    top: 4rem;
+    right: 1rem;
+    background-color: black;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+    min-width: 140px; /* Default width for mobile menu */
+}
+
+.navbar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-menu a {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.navbar-menu a.active {
+    color: orange; /* Color for active item in mobile menu */
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 1024px) { /* 'sm' and 'md' sizes */
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-menu-toggle {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .navbar-menu.show {
+        display: flex;
+    }
+}
+
+@media (max-width: 640px) { /* 'xs' size */
+    .navbar-menu {
+        padding: 1rem; /* Add padding to mobile menu */
+        min-width: 120px; /* Adjust width for smaller screens if needed */
+    }
+
+    .navbar-menu a {
+        font-size: 0.875rem; /* Adjust font size for smaller screens */
+        margin-bottom: 0.25rem; /* Adjust margin for smaller screens */
+    }
+}
