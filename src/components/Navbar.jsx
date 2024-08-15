@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
-import "./Navbar.css"; // Import the CSS file
+import "./Navbar.css";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -20,6 +20,30 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = navLinks.map((link) => document.getElementById(link.id));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.getAttribute("id"));
+          }
+        });
+      },
+      { threshold: 0.5 } // Trigger when 50% of the section is in view
+    );
+
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
   }, []);
 
   return (
@@ -45,8 +69,8 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <li
               key={link.id}
-              className={active === link.title ? "active" : ""}
-              onClick={() => setActive(link.title)}
+              className={active === link.id ? "active" : ""}
+              onClick={() => setActive(link.id)}
             >
               <a href={`#${link.id}`}>{link.title}</a>
             </li>
@@ -64,10 +88,10 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <li
                 key={link.id}
-                className={active === link.title ? "active" : ""}
+                className={active === link.id ? "active" : ""}
                 onClick={() => {
                   setToggle(false); // Close the menu when a link is clicked
-                  setActive(link.title);
+                  setActive(link.id);
                 }}
               >
                 <a href={`#${link.id}`}>{link.title}</a>
