@@ -1,0 +1,39 @@
+/* Hero.css */
+
+/* Add styles for the container holding the image */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: auto; /* Adjust height as needed */
+  overflow: hidden;
+}
+
+/* Make sure the image itself scales correctly */
+.image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Adjust if you need different fitting behavior */
+  transition: transform 0.3s ease;
+}
+
+/* Ensure the image container has a proper z-index */
+.glowing-border {
+  position: relative;
+  border-radius: 10px; /* Adjust to your border radius */
+  border: 2px solid rgba(255, 165, 0, 0.7); /* Adjust border color */
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.7);
+  animation: pulse 1.5s infinite; /* Pulsing animation */
+}
+
+/* Keyframes for the glowing effect */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 165, 0, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.7);
+  }
+}

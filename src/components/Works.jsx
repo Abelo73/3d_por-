@@ -17,6 +17,7 @@ const ProjectCard = ({
   color,
   image,
   source_code_link,
+  preview,
 }) => {
   return (
     <motion.dev variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
@@ -29,7 +30,9 @@ const ProjectCard = ({
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
       >
         <div className="relative w-full h-[230px]">
+          {/* <img src={image} alt={name} className="w-full h-full object-cover" /> */}
           <img src={image} alt={name} className="w-full h-full object-cover" />
+
           <div className="absolute flex justify-end inset-0 m-3 card-img_hover">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
@@ -53,6 +56,17 @@ const ProjectCard = ({
               #{tag.name}
             </p>
           ))}
+        </div>
+
+        <div className="mt-4">
+          <a
+            className="py-2 px-4 bg-orange-500 rounded-md hover:bg-orange-700"
+            href={preview}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live preview
+          </a>
         </div>
       </Tilt>
     </motion.dev>
