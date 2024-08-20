@@ -8,6 +8,8 @@ import abel from "../assets/abel.JPG";
 import { Typewriter } from "react-simple-typewriter";
 import "./Hero.css"; // Import your custom CSS file
 
+import cv from "../assets/Abel_cv.pdf"; // Import the PDF file
+
 const Hero = () => {
   const [isFading, setIsFading] = useState(false);
 
@@ -92,7 +94,7 @@ const Hero = () => {
           <div className="w-1 sm:h-80 h-40 hidden lg:flex  line" />
         </div>
 
-        <div className="max-w-[1200px] order-2 sm:order-1">
+        <div className="max-w-[1200px] mx-6 order-2 sm:order-1">
           <h1 className={`${styles.heroHeadText}`}>
             Hi, I'm{" "}
             <span className="text-orange-500">
@@ -107,7 +109,7 @@ const Hero = () => {
               />
             </span>
           </h1>
-          <p className={`${styles.heroSubText} font-mono`}>
+          {/* <p className={`${styles.heroSubText} font-mono`}>
             I create dynamic and engaging experiences with
             <br className="sm:block hidden font-mono" />
             <span className="text-gradient font-mono">
@@ -119,7 +121,32 @@ const Hero = () => {
             <span className="text-gradient font-mono">
               Frontend using JavaScript & React
             </span>
+          </p> */}
+
+          <p className={`${styles.heroSubText} font-mono`}>
+            Specializing in both Backend and Frontend Development
+            <br className="sm:block hidden font-mono" />
+            with over 1 year of hands-on experience.
+            <br className="sm:block hidden font-mono" />
+            Transforming ideas into robust,
+            <br className="sm:block hidden font-mono" />
+            user-friendly applications with a dedication to quality and
+            innovation.
           </p>
+
+          {/* <button className="bg-tertiary mt-10 py-3 px-4 rounded-md hover:bg-[#221950]">
+            Download CV
+          </button> */}
+
+          <div className="mt-10">
+            <a
+              href={cv} // Replace with the actual path to your CV
+              className="bg-tertiary mt-10 py-3 px-4 rounded-md hover:bg-[#221950] text-white"
+              download="Abel_Adisu_CV.pdf" // Name of the file when downloaded
+            >
+              Download CV
+            </a>
+          </div>
         </div>
 
         {/* <div className="w-[600px] overflow-hidden hover:cursor-pointer hover:scale-[1.1] transition-all object-cover  order-1 sm:order-2 md:order-2">
