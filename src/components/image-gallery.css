@@ -1,0 +1,13 @@
+.cool-gallery-animation .image-gallery-slide {
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  }
+  
+  .cool-gallery-animation .image-gallery-thumbnail {
+    border-radius: 10px;
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .cool-gallery-animation .image-gallery-thumbnail:hover {
+    transform: scale(1.1);
+  }
+  

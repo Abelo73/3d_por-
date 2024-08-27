@@ -1,0 +1,56 @@
+/* Container for the CV section */
+.cv-container {
+    width: 100%;
+    max-width: 800px; /* Adjust max-width as needed */
+    margin: 0 auto;
+  }
+  
+  /* Swiper Slide */
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9; /* Light background color for the slides */
+    border-radius: 10px; /* Optional rounded corners */
+    overflow: hidden; /* Ensure content stays within bounds */
+  }
+  
+  .swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures image covers the slide area without distortion */
+    border-radius: 10px; /* Match the container’s border radius */
+  }
+  
+  /* Swiper Pagination */
+  .swiper-pagination-bullet {
+    background-color: #007aff; /* Custom color for pagination bullets */
+    opacity: 0.7; /* Slightly transparent bullets */
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: #005bb5; /* Darker color for active pagination bullet */
+    opacity: 1; /* Full opacity for active bullet */
+  }
+  
+  /* Swiper Navigation Buttons */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #007aff; /* Custom color for navigation arrows */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    color: #005bb5; /* Darker color on hover */
+  }
+  
+  /* Zoom Container */
+  .swiper-zoom-container img {
+    transition: transform 0.3s ease; /* Smooth zoom transition */
+  }
+  
+  .swiper-zoom-container img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  

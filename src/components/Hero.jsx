@@ -4,6 +4,8 @@ import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 import { SectionWrapper } from "./hoc";
 import abel from "../assets/abel.JPG";
+
+import abelbg from "../assets/abelbg.png";
 // import { Typed } from "react-typed";
 import { Typewriter } from "react-simple-typewriter";
 import "./Hero.css"; // Import your custom CSS file
@@ -123,7 +125,7 @@ const Hero = () => {
             </span>
           </p> */}
 
-          <p className={`${styles.heroSubText} font-mono`}>
+          <p className={`${styles.heroSubText} font-mono leading-7`}>
             Specializing in both Backend and Frontend Development
             <br className="sm:block hidden font-mono" />
             with over 1 year of hands-on experience.
@@ -141,7 +143,7 @@ const Hero = () => {
           <div className="mt-10">
             <a
               href={cv} // Replace with the actual path to your CV
-              className="bg-tertiary mt-10 py-3 px-4 rounded-md hover:bg-[#221950] text-white"
+              className="bg-orange-500 mt-10 py-3 px-4 rounded-md hover:bg-[#ffae36] text-white"
               download="Abel_Adisu_CV.pdf" // Name of the file when downloaded
             >
               Download CV

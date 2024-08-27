@@ -12,6 +12,7 @@ import {
   Works,
 } from "./components";
 import Nav2 from "./components/Nav2";
+// import CV from "./components/CV";
 const App = () => {
   return (
     <BrowserRouter>
@@ -27,6 +28,8 @@ const App = () => {
         <Tech />
         <Works />
         <Feedbacks />
+
+        {/* <CV /> */}
         <div className="relative z-0">
           <Contact />
           <StarsCanvas />

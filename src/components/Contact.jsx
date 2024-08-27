@@ -18,9 +18,47 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
 
-  const handleSubmit = (e) => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .send(
+        "service_gbdxrhb", // Replace with your EmailJS service ID
+        "template_lq9s8q4", // Replace with your EmailJS template ID
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+        },
+        "d-Ck6Uf4kCyiCCPFS" // Replace with your EmailJS user ID
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Message sent successfully!");
+          setLoading(false);
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Failed to send the message. Please try again.");
+          setLoading(false);
+        }
+      );
+  };
 
   return (
     <div className="xl:mt-12 xl:flex-row flex-col-reverse overflow-hidden flex gap-10">
@@ -37,29 +75,35 @@ const Contact = () => {
           className="mt-12 flex flex-col gap-8"
         >
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">your name</span>
+            <span className="text-white font-medium mb-4">Your Name</span>
             <input
               type="text"
+              name="name"
               value={form.name}
-              placeholder="what is your name?"
+              onChange={handleChange}
+              placeholder="What is your name?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">your name</span>
+            <span className="text-white font-medium mb-4">Your Email</span>
             <input
               type="email"
+              name="email"
               value={form.email}
-              placeholder="what is your email?"
+              onChange={handleChange}
+              placeholder="What is your email?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">your email</span>
+            <span className="text-white font-medium mb-4">Your Message</span>
             <textarea
               rows={7}
+              name="message"
               value={form.message}
-              placeholder="what do you want to say?"
+              onChange={handleChange}
+              placeholder="What do you want to say?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium"
             />
           </label>
@@ -68,17 +112,10 @@ const Contact = () => {
             className="bg-tertiary py-3 px-8 outline-none text-white shadow-md rounded-md w-fit font-bold shadow-primary"
             type="submit"
           >
-            {loading ? "sending..." : "send"}
+            {loading ? "Sending..." : "Send"}
           </button>
         </form>
       </motion.div>
-
-      {/* <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        className=" xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
-      >
-        <EarthCanvas  />
-      </motion.div> */}
 
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
